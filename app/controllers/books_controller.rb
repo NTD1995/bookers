@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    @books = Book.all
   end
 
   def show
@@ -22,10 +23,6 @@ class BooksController < ApplicationController
     # 4. トップ画面へリダイレクト
     redirect_to '/top'
   end
-  
-  :
-  :省略
-  :
   
   private
   # ストロングパラメータ
