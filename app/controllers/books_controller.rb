@@ -21,10 +21,10 @@ class BooksController < ApplicationController
    def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      flash[:notice] = "編集に成功しました。"
+      flash[:notice] = "Book was successfully editingi."
     redirect_to book_path(@book.id)  
     else      
-      flash.now[:alert] = "編集に失敗しました。"
+      flash.now[:alert] = "Book was make a mistake editing."
       render :edit
     end
   end
@@ -42,13 +42,13 @@ class BooksController < ApplicationController
     # 3. データをデータベースに保存するためのsaveメソッド実行
     if @book.save
       # 3. フラッシュメッセージを定義し、詳細画面へリダイレクト
-      flash[:notice] = "投稿に成功しました。"
+      flash[:notice] = "Book was successfully created."
     # 4. 詳細画面へリダイレクト
     redirect_to book_path(@book.id)
     else
        @books = Book.all
      # flash.nowでフラッシュメッセージを定義する
-      flash.now[:alert] = "投稿に失敗しました。"
+      flash.now[:alert] = "Book was make a mistake created."
       render :index
     end
   end
